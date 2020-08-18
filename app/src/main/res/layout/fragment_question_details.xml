@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -74,7 +72,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/pic"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="150dp">
 
             <ImageView
                 android:id="@+id/shopImageView1"
@@ -106,14 +104,14 @@
                 app:layout_constraintTop_toTopOf="parent" >
 
                 <TextView
-                    android:id="@+id/pName"
+                    android:id="@+id/pFamily"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawableLeft="@drawable/family"
                     android:drawablePadding="4dp"
-                    android:paddingStart="10dp"
                     android:gravity="center"
-                    android:text="Name"
+                    android:paddingStart="10dp"
+                    android:text="Family Size"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -139,60 +137,240 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="377dp"
-                android:layout_height="460dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:background="@drawable/rounded_layout6"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout1">
 
                 <TextView
                     android:id="@+id/pCounty"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/county"
                     android:drawablePadding="4dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="5dp"
                     android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:paddingTop="5dp"
                     android:text="County"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pZone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/pZone"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/county"
                     android:drawablePadding="4dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="5dp"
                     android:gravity="center"
+                    android:paddingStart="5dp"
                     android:text="Zone"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pSubCounty"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pCounty" />
 
                 <TextView
                     android:id="@+id/pSubCounty"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/county"
                     android:drawablePadding="4dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="5dp"
                     android:gravity="center"
+                    android:paddingStart="5dp"
                     android:text="sub County"
                     android:textColor="@color/colorBlack"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pWard"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pZone" />
+
+                <TextView
+                    android:id="@+id/pWard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Ward"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pLocation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pSubCounty" />
+
+                <TextView
+                    android:id="@+id/pLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Location"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pStructure"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pWard" />
+
+                <TextView
+                    android:id="@+id/pStructure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Structure"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pActivity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pLocation" />
+
+                <TextView
+                    android:id="@+id/pActivity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Activity"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pSkills"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pStructure" />
+
+                <TextView
+                    android:id="@+id/pSkills"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Skills"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pProperty"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pActivity" />
+
+                <TextView
+                    android:id="@+id/pProperty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Property"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pProffSkills"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pSkills" />
+
+                <TextView
+                    android:id="@+id/pProffSkills"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="ProffSkills"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pPhysicalChallenge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pProperty" />
+
+                <TextView
+                    android:id="@+id/pPhysicalChallenge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Challenge"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pOpportunity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pProffSkills" />
+
+                <TextView
+                    android:id="@+id/pOpportunity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Opportunity"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pIncome"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pPhysicalChallenge" />
+
+                <TextView
+                    android:id="@+id/pIncome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Income"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/pAccessToTech"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pOpportunity" />
+
+                <TextView
+                    android:id="@+id/pAccessToTech"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:drawableLeft="@drawable/county"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingStart="5dp"
+                    android:text="Tech"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pIncome" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.RegisteredUsers"></activity>
+        <activity android:name=".ui.QuestionDetails"></activity>
+        <activity android:name=".ui.RegisteredUsers" />
         <activity android:name=".dialogs.NewUserDialog" />
         <activity android:name=".ui.Login">
             <intent-filter>

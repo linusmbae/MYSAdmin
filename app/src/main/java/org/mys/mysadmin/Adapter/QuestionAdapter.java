@@ -1,15 +1,19 @@
 package org.mys.mysadmin.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.mys.mysadmin.R;
 import org.mys.mysadmin.model.Questions;
+import org.mys.mysadmin.ui.QuestionDetails;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -42,7 +46,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questi
         return mQuiz.size();
     }
 
-    public class questionVieHolder extends RecyclerView.ViewHolder {
+    public class questionVieHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @BindView(R.id.name)TextView mNameTextView;
         @BindView(R.id.fam)TextView mFamTextView;
         @BindView(R.id.age)TextView mAgeTextView;
@@ -52,9 +56,13 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questi
         @BindView(R.id.location)TextView mLocation;
         @BindView(R.id.Author)TextView mAuthor;
 
+        private Context mContext;
+
         public questionVieHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindQuiz(Questions questions){
@@ -66,6 +74,16 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questi
             mWard.setText("Ward: "+questions.getWard());
             mLocation.setText("Location: "+questions.getLocation());
             mAuthor.setText(questions.getUserName());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, QuestionDetails.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("questions", Parcels.wrap(mQuiz));
+
+            mContext.startActivity(intent);
         }
     }
 }
