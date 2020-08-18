@@ -9,7 +9,7 @@
     tools:context=".ui.Login">
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/UserName1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -21,18 +21,41 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:background="@drawable/input"
-        android:drawableEnd="@drawable/ic_baseline_phone_locked_24"
-        android:hint="@string/prompt_Phone"
-        android:inputType="phone"
+        android:drawableEnd="@drawable/ic_baseline_person_add_24"
+        android:hint="@string/prompt_Name"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintBottom_toTopOf="@+id/email1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.39" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/email1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="2dp"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/input"
+        android:drawableEnd="@drawable/ic_baseline_email_24"
+        android:hint="@string/prompt_Email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toTopOf="@+id/password1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserName1"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <EditText
+        android:id="@+id/password1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -49,30 +72,10 @@
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/mysLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
-
-    <Button
-        android:id="@+id/mysLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_button"
-        android:fontFamily="@font/coiny"
-        android:text="@string/action_sign_in"
-        android:textStyle="bold"
-        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/attemptLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
+        app:layout_constraintTop_toBottomOf="@+id/email1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@id/imageView"
@@ -100,7 +103,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="100dp"
         android:background="@drawable/rounded_layout2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/carter_one"
-            android:text="MYS Admin"
+            android:text="MYS New User"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="24sp"
@@ -135,37 +138,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/txtAttempts"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/lobster"
-            android:paddingStart="20dp"
-            android:text="Attempts: "
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.507" />
-
-        <TextView
-            android:id="@+id/attempts"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/doppio_one"
-            android:text="5"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txtAttempts"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
