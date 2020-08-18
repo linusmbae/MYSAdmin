@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements NewUserDialog.MYS
     private QuestionAdapter mAdapter;
 
     String name;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
 
     DatabaseReference RootRef;
@@ -77,20 +75,32 @@ public class MainActivity extends AppCompatActivity implements NewUserDialog.MYS
     }
 
     private void getQuestions() {
+        mAuthProgressDialog.show();
         RootRef= FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_MYS_QUESTIONS);
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mAuthProgressDialog.dismiss();
                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                    Questions questions=dataSnapshot1.getValue(Questions.class);
                    mQuestions.add(questions);
+
                }
-               mAdapter=new QuestionAdapter(MainActivity.this,mQuestions);
-               mRecyclerView.setAdapter(mAdapter);
+                if (mQuestions != null){
+                    mAdapter=new QuestionAdapter(MainActivity.this,mQuestions);
+                    mRecyclerView.setAdapter(mAdapter);
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                }else {
+                    new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Oops!.. There is no data in the database")
+                            .show();
+                }
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                mAuthProgressDialog.dismiss();
                 new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
                         .setTitleText("Oops!.. We encountered an error kindly try again later")
                         .show();
@@ -110,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements NewUserDialog.MYS
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.logout, menu);
         inflater.inflate(R.menu.new_user, menu);
+        inflater.inflate(R.menu.creted_users, menu);
         return super.onCreateOptionsMenu(menu);
     }
     @Override
@@ -120,6 +131,11 @@ public class MainActivity extends AppCompatActivity implements NewUserDialog.MYS
             return true;
         }else if (id==R.id.newMYSUser){
             addNewUser();
+        }else if (id==R.id.MYSUsers){
+            Intent intent=new Intent(MainActivity.this,RegisteredUsers.class);
+            String AdminName=name;
+            intent.putExtra("AdminName",AdminName);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

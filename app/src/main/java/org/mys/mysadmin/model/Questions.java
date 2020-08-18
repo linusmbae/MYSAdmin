@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Questions {
 
+    @SerializedName("userName")
+    @Expose
+    private String userName;
     @SerializedName("name")
     @Expose
     private String name;
@@ -88,6 +91,7 @@ public class Questions {
      * @param educationLevel
      * @param regionalActivities
      * @param skill
+     * @param userName
      * @param name
      * @param property
      * @param location
@@ -96,8 +100,9 @@ public class Questions {
      * @param age
      * @param familySize
      */
-    public Questions(String name, String age, String location, String ward, String county, String subCounty, String skill, String zone, String educationLevel, String professionalSkills, String opportunityLevels, String structure, String property, String familySize, String physicallyChallenged, String healthCondition, String regionalActivities, String accessToTechnology, String incomeSource, String challengesInTheArea) {
+    public Questions(String userName,String name, String age, String location, String ward, String county, String subCounty, String skill, String zone, String educationLevel, String professionalSkills, String opportunityLevels, String structure, String property, String familySize, String physicallyChallenged, String healthCondition, String regionalActivities, String accessToTechnology,String incomeSource, String challengesInTheArea) {
         super();
+        this.userName = userName;
         this.name = name;
         this.age = age;
         this.location = location;
@@ -118,6 +123,14 @@ public class Questions {
         this.accessToTechnology = accessToTechnology;
         this.incomeSource = incomeSource;
         this.challengesInTheArea = challengesInTheArea;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {

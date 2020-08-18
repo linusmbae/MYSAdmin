@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -34,6 +35,8 @@ public class Login extends AppCompatActivity {
 
     private ProgressDialog mAuthProgressDialog;
 
+    DatabaseReference RootRef;
+    private int counter=5;
     private String phone;
     private String password;
 
@@ -72,7 +75,6 @@ public class Login extends AppCompatActivity {
     }
 
     private void AllowAccess(final String phone,final String password) {
-        final DatabaseReference RootRef;
         RootRef= FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -80,7 +82,7 @@ public class Login extends AppCompatActivity {
                 if (dataSnapshot.child(Constants.FIREBASE_CHILD_MYS_ADMIN).child(phone).exists()){
                     Admin usersData=dataSnapshot.child(Constants.FIREBASE_CHILD_MYS_ADMIN).child(phone).getValue(Admin.class);
                     if (usersData.getPhone().equals(phone)){
-                        if (usersData.getPassword().equals(password)){
+                        if (usersData.getPassword().equals(password)&&!usersData.getPassword().equals("Blocked")){
                             if (Constants.FIREBASE_CHILD_MYS_ADMIN.equals("Admin")){
                                 mAuthProgressDialog.dismiss();
                                 new SweetAlertDialog(Login.this,SweetAlertDialog.SUCCESS_TYPE)
@@ -91,12 +93,19 @@ public class Login extends AppCompatActivity {
                                 Intent intent = new Intent(Login.this,MainActivity.class);
                                 intent.putExtra("name",name);
                                 startActivity(intent);
+                                finish();
                             }
+                        }else if (usersData.getPassword().equals("Blocked")){
+                            mAuthProgressDialog.dismiss();
+                            new SweetAlertDialog(Login.this,SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Your account is Blocked")
+                                    .show();
                         }else {
                             mAuthProgressDialog.dismiss();
                             new SweetAlertDialog(Login.this,SweetAlertDialog.ERROR_TYPE)
                                     .setTitleText("Wrong Password")
                                     .show();
+                            counterCheck();
                         }
                     }else {
                         mAuthProgressDialog.dismiss();
@@ -127,6 +136,24 @@ public class Login extends AppCompatActivity {
         mAuthProgressDialog.setTitle("Meru Youth Service");
         mAuthProgressDialog.setMessage("Authenticating Credentials...");
         mAuthProgressDialog.setCancelable(false);
+    }
+
+    private void counterCheck() {
+        counter--;
+        mAttempts.setText(String.valueOf(counter));
+        mAttempts.setTextColor(Color.RED);
+        mAuthProgressDialog.dismiss();
+        if (counter==1){
+            new SweetAlertDialog(Login.this,SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Warning! Attempts remaining: "+String.valueOf(counter))
+                    .show();
+        }else if (counter==0) {
+            mLogin.setEnabled(false);
+            RootRef.child(Constants.FIREBASE_CHILD_MYS_ADMIN).child(phone).child("password").setValue("Blocked");
+            new SweetAlertDialog(Login.this,SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Account Blocked")
+                    .show();
+        }
     }
 
 }

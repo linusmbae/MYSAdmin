@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.mys.mysadmin.R;
 import org.mys.mysadmin.model.Questions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +50,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questi
         @BindView(R.id.subCounty)TextView mSubCounty;
         @BindView(R.id.ward)TextView mWard;
         @BindView(R.id.location)TextView mLocation;
+        @BindView(R.id.Author)TextView mAuthor;
 
         public questionVieHolder(View itemView) {
             super(itemView);
@@ -66,6 +65,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.questi
             mSubCounty.setText("Sub County: "+questions.getSubCounty());
             mWard.setText("Ward: "+questions.getWard());
             mLocation.setText("Location: "+questions.getLocation());
+            mAuthor.setText(questions.getUserName());
         }
     }
 }

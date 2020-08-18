@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
             cardview:layout_constraintBottom_toBottomOf="parent"
             cardview:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="8dp"
                 android:background="@drawable/rounded_layout4"
                 android:orientation="vertical"
                 cardview:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="2dp"
                     android:text="Name"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
@@ -49,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/name"
                     android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="3dp"
                     android:text="Family Size"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic" />
@@ -60,9 +59,20 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/fam"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="3dp"
                     android:text="Age"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/Author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/age"
+                    android:layout_alignParentEnd="true"
+                    android:paddingLeft="3dp"
+                    android:text="Author"
+                    android:alpha="0.5"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic" />
 
@@ -71,7 +81,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="200dp"
+            android:layout_width="220dp"
             android:layout_height="match_parent"
             cardview:layout_constraintBottom_toBottomOf="parent"
             cardview:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +93,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
                 android:background="@drawable/rounded_layout5"
                 android:orientation="vertical"
                 cardview:layout_constraintBottom_toBottomOf="parent"
@@ -96,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="2dp"
                     android:text="County"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold" />
@@ -108,7 +117,7 @@
                     android:layout_below="@+id/count"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="5dp"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="3dp"
                     android:text="Sub County"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic" />
@@ -119,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/subCounty"
                     android:layout_alignParentStart="true"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="3dp"
                     android:text="Ward"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic" />
@@ -131,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ward"
                     android:layout_alignParentStart="true"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="3dp"
                     android:text="Location"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic" />
